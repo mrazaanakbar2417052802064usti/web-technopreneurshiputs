@@ -1,0 +1,1724 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #071120;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+
+.navbar {
+  width: 100%;
+  padding: 18px 7%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(10, 20, 40, 0.9);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* MENU ICON */
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  transition: 0.4s;
+  /* Transisi diperhalus[cite: 3] */
+}
+
+/* Animasi Hamburger ke X[cite: 3] */
+.menu-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -7px);
+}
+
+/* NAV LINKS */
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #dbeafe;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  color: #60a5fa;
+}
+
+.nav-links .active::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 100%;
+  height: 2px;
+
+  background: #60a5fa;
+}
+
+/* HOME */
+
+.home {
+  min-height: 90vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 7%;
+}
+
+.home-container {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 40px;
+  /* Jarak disesuaikan agar lebih padat[cite: 3] */
+  flex-wrap: wrap;
+}
+
+/* PROFILE */
+
+.profile-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  /* Patokan untuk elemen orbit[cite: 3] */
+}
+
+/* Elemen Dekoratif Orbit (Perbaikan Posisi Tengah)[cite: 3] */
+.profile-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border: 1px dashed rgba(96, 165, 250, 0.2);
+  border-radius: 50%;
+
+  /* Centering total[cite: 3] */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  animation: rotateOrbit 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotateOrbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.profile-circle {
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(145deg, #0f172a, #1e3a8a);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 5px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 0 30px rgba(59, 130, 246, 0.3),
+    0 0 60px rgba(37, 99, 235, 0.2);
+
+  animation: floating 4s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Gaya untuk Garis Pemisah (Divider)[cite: 3] */
+.divider {
+  width: 2px;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.5), transparent);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+  /* Efek glow tipis[cite: 3] */
+}
+
+/* TEXT */
+
+.home-text {
+  flex: 1;
+  max-width: 550px;
+  position: relative;
+}
+
+.home-text h1 {
+  font-size: 52px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.home-text span {
+  color: #60a5fa;
+}
+
+.home-text p {
+  font-size: 18px;
+  color: #cbd5e1;
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+}
+
+/* BUTTON */
+
+.button-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 28px;
+  border-radius: 14px;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+}
+
+.btn-secondary {
+  border: 2px solid #3b82f6;
+  color: #93c5fd;
+}
+
+.btn-secondary:hover {
+  background: #1d4ed8;
+  color: white;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: #050b16;
+  color: #94a3b8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 992px) {
+
+  .divider,
+  .profile-wrapper::before {
+    display: none;
+    /* Sembunyikan divider & orbit di layar kecil[cite: 3] */
+  }
+}
+
+@media(max-width: 768px) {
+
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+
+    top: 85px;
+    left: 0;
+
+    width: 100%;
+
+    background: rgba(5, 11, 22, 0.98);
+
+    flex-direction: column;
+    align-items: center;
+
+    padding: 25px 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .home {
+    text-align: center;
+  }
+
+  .home-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-text h1 {
+    font-size: 36px;
+  }
+
+  .profile-circle {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media(max-width: 480px) {
+
+  .home-text h1 {
+    font-size: 28px;
+  }
+
+  .button-group {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-circle {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* BACKGROUND GLOW */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  top: -200px;
+  left: -200px;
+
+  width: 500px;
+  height: 500px;
+
+  background: rgba(37, 99, 235, 0.25);
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+
+  position: fixed;
+  bottom: -200px;
+  right: -200px;
+
+  width: 500px;
+  height: 500px;
+
+  background: rgba(59, 130, 246, 0.18);
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  z-index: -1;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+#typing::after {
+  content: "|";
+  animation: blink 0.8s infinite;
+  color: #60a5fa;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Container Utama Halaman[cite: 3] */
+.container-about {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 7%;
+}
+
+/* Kartu Biodata (Efek Kaca)[cite: 3] */
+.about-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 50px;
+  border-radius: 30px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-body {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Styling Foto[cite: 3] */
+.about-image {
+  width: 300px;
+  height: 350px;
+  background: #1e293b;
+  border-radius: 20px;
+  /* Sudut tumpul sesuai gambarmu[cite: 3] */
+  overflow: hidden;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #1a2238;
+  display: block;
+}
+
+/* Styling List Biodata[cite: 3] */
+.about-content {
+  flex: 1;
+}
+
+.bio-item {
+  display: flex;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.bio-item .label {
+  width: 100px;
+  font-weight: 600;
+  color: #60a5fa;
+  /* Aksen biru[cite: 3] */
+}
+
+.bio-item .value {
+  color: #cbd5e1;
+}
+
+.bio-quote {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-style: italic;
+  color: #94a3b8;
+}
+
+/* Responsive[cite: 3] */
+@media (max-width: 768px) {
+  .about-body {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bio-item {
+    justify-content: center;
+  }
+}
+
+/* Container untuk Peta */
+.map-container {
+  margin-top: 30px;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  /* Agar sudut peta ikut melengkung */
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Memastikan peta tetap responsif di HP[cite: 3] */
+.map-container iframe {
+  filter: grayscale(80%) invert(90%) contrast(90%);
+  /* Efek Dark Mode agar senada[cite: 3] */
+  display: block;
+}
+
+/* Penyesuaian Layout Dosen[cite: 3] */
+@media (max-width: 850px) {
+  .about-body {
+    flex-direction: column-reverse;
+    /* Foto di atas peta saat di HP[cite: 3] */
+  }
+}
+
+/* Container untuk kolom foto dan deskripsi */
+.profile-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Deskripsi singkat di bawah foto */
+.bio-description-simple {
+  text-align: center;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  font-weight: 500;
+  font-size: 15px;
+  width: 100%;
+}
+
+/* Memastikan layout body tetap rapi */
+.about-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* Container Foto Kampus agar konsisten dengan Map */
+.campus-photo-container {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.campus-photo {
+  width: 100%;
+  height: 450px;
+  /* Lebih tinggi sedikit dari map yang 350px/400px */
+  object-fit: cover;
+  /* Foto tetap proporsional meski di-crop */
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Efek hover biar lebih interaktif */
+.campus-photo:hover {
+  transform: scale(1.05);
+}
+
+/* Container Ikon Sosial */
+.social-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 300px;
+  padding: 15px 25px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-item i {
+  font-size: 24px;
+}
+
+/* Efek Hover Spesifik Warna */
+.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.2);
+  border-color: #25d366;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+  transform: translateY(-5px);
+}
+
+.instagram:hover {
+  background: rgba(225, 48, 108, 0.2);
+  border-color: #e1306c;
+  box-shadow: 0 0 20px rgba(225, 48, 108, 0.4);
+  transform: translateY(-5px);
+}
+
+.discord:hover {
+  background: rgba(88, 101, 242, 0.2);
+  border-color: #5865f2;
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+  transform: translateY(-5px);
+}
+
+/* ===================================================== */
+/* ============ KHUSUS HALAMAN PROFIL KAMPUS =========== */
+/* ===================================================== */
+
+/* WRAPPER UTAMA */
+
+.kampus-wrapper {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 50px 7%;
+
+  display: grid;
+  grid-template-columns: 2fr 1.1fr;
+  gap: 30px;
+}
+
+/* ================= LEFT SECTION ================= */
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* HERO KAMPUS */
+
+.hero-campus {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 30px;
+
+  padding: 40px;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-campus h1 {
+  text-align: center;
+
+  font-size: 42px;
+  margin-bottom: 30px;
+
+  color: #dbeafe;
+}
+
+/* FOTO HERO */
+
+.hero-image {
+  width: 100%;
+  height: 430px;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  border: 2px solid rgba(59, 130, 246, 0.3);
+
+  box-shadow:
+    0 0 25px rgba(59, 130, 246, 0.2),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.5s;
+}
+
+.hero-image:hover img {
+  transform: scale(1.05);
+}
+
+/* HISTORY */
+
+.history-box {
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 30px;
+
+  padding: 40px;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.history-box h2 {
+  font-size: 34px;
+
+  margin-bottom: 25px;
+
+  color: #60a5fa;
+}
+
+.history-box p {
+  line-height: 1.9;
+
+  color: #cbd5e1;
+
+  margin-bottom: 18px;
+}
+
+/* ================= RIGHT SECTION ================= */
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ================= PMB CARD ================= */
+
+.pmb-card {
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 30px;
+
+  padding: 30px;
+
+  display: flex;
+  gap: 25px;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* POSTER */
+
+.poster-box {
+  width: 220px;
+  height: 320px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+
+  border: 2px solid rgba(59, 130, 246, 0.25);
+}
+
+.poster-box img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.5s;
+}
+
+.poster-box:hover img {
+  transform: scale(1.05);
+}
+
+/* INFO PMB */
+
+.pmb-info {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pmb-info h2 {
+  font-size: 35px;
+
+  line-height: 1.3;
+
+  margin-bottom: 30px;
+
+  color: #dbeafe;
+}
+
+/* WEBSITE */
+
+.website {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-bottom: 30px;
+}
+
+.website-circle {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  border: 3px solid #60a5fa;
+
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.website span {
+  font-size: 22px;
+  color: #cbd5e1;
+}
+
+/* SOCIAL */
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 14px;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  font-size: 20px;
+
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px);
+
+  background: #2563eb;
+
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+/* ================= LOCATION ================= */
+
+.location-card {
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 30px;
+
+  padding: 30px;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.location-card h2 {
+  font-size: 34px;
+
+  margin-bottom: 25px;
+
+  color: #60a5fa;
+}
+
+.location-content {
+  display: flex;
+  gap: 25px;
+}
+
+/* MAP */
+
+.map-box {
+  width: 270px;
+  height: 250px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  flex-shrink: 0;
+
+  border: 2px solid rgba(59, 130, 246, 0.25);
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+
+  filter: grayscale(80%) invert(90%) contrast(90%);
+}
+
+/* ADDRESS */
+
+.address-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.address-box h3 {
+  font-size: 28px;
+
+  margin-bottom: 15px;
+
+  color: #dbeafe;
+}
+
+.address-box p {
+  line-height: 1.8;
+
+  color: #cbd5e1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1200px) {
+
+  .kampus-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media(max-width:768px) {
+
+  .kampus-wrapper {
+    padding: 30px 5%;
+  }
+
+  .hero-campus {
+    padding: 25px;
+  }
+
+  .hero-campus h1 {
+    font-size: 30px;
+  }
+
+  .hero-image {
+    height: 300px;
+  }
+
+  .pmb-card {
+    flex-direction: column;
+  }
+
+  .poster-box {
+    width: 100%;
+    height: 300px;
+  }
+
+  .location-content {
+    flex-direction: column;
+  }
+
+  .map-box {
+    width: 100%;
+    height: 250px;
+  }
+
+  .pmb-info h2 {
+    font-size: 28px;
+  }
+
+}
+
+@media(max-width:480px) {
+
+  .hero-campus h1 {
+    font-size: 25px;
+  }
+
+  .history-box h2,
+  .location-card h2 {
+    font-size: 26px;
+  }
+
+  .pmb-info h2 {
+    font-size: 24px;
+  }
+
+}
+
+/* ========================================= */
+/* SECTION SCROLL */
+/* ========================================= */
+.kampus-scroll {
+  width: 100%;
+}
+
+/* TIAP SECTION */
+.kampus-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 7%;
+  position: relative;
+}
+
+/* HERO */
+.hero-section {
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.2), transparent 40%);
+}
+
+/* HISTORY */
+.history-section {
+  background: radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.18), transparent 40%);
+}
+
+/* PMB */
+.pmb-section {
+  background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 40%);
+}
+
+/* LOKASI */
+.lokasi-section {
+  background: radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.16), transparent 40%);
+}
+
+/* ANIMASI MUNCUL */
+.hero-campus,
+.history-box,
+.pmb-card,
+.location-card {
+  animation: fadeUp 1s ease;
+}
+
+/* ANIMASI */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HERO BOX */
+.hero-campus{
+  width: 100%;
+  max-width: 1100px; /* sebelumnya terlalu kecil */
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 35px;
+
+  padding: 45px;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* JUDUL */
+.hero-campus h1{
+  text-align: center;
+
+  font-size: 40px; /* diperbesar */
+
+  margin-bottom: 35px;
+
+  color: #dbeafe;
+
+  letter-spacing: 2px;
+}
+
+/* CONTAINER GAMBAR */
+.hero-image{
+  width: 100%;
+
+  height: 620px; /* diperbesar */
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  border: 3px solid rgba(59,130,246,0.35);
+
+  box-shadow:
+  0 0 30px rgba(59,130,246,0.2),
+  0 10px 35px rgba(0,0,0,0.35);
+}
+
+/* GAMBAR */
+.hero-image img{
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover; /* isi penuh */
+
+  object-position: center;
+
+  transition: 0.5s;
+}
+
+/* HOVER */
+.hero-image:hover img{
+  transform: scale(1.04);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  .hero-campus{
+    padding: 25px;
+  }
+
+  .hero-campus h1{
+    font-size: 35px;
+  }
+
+  .hero-image{
+    height: 320px;
+  }
+
+}
+
+TAMBAHKAN INI PALING BAWAH CSS KAMU
+
+/* ======================================= */
+/* PMB SECTION UPGRADE */
+/* ======================================= */
+
+.pmb-card{
+  width: 100%;
+  max-width: 1250px;
+
+  padding: 45px;
+
+  gap: 45px;
+
+  align-items: center;
+}
+
+/* POSTER BESAR */
+
+.poster-box{
+  width: 420px;
+  height: 580px;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  transition: 0.5s ease;
+
+  box-shadow:
+  0 0 25px rgba(59,130,246,0.25),
+  0 15px 40px rgba(0,0,0,0.35);
+}
+
+.poster-box img{
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.6s ease;
+}
+
+/* HOVER */
+
+.poster-box:hover{
+  transform: scale(1.05);
+}
+
+.poster-box:hover img{
+  transform: scale(1.08);
+}
+
+/* INFO */
+
+.pmb-info{
+  flex: 1;
+}
+
+/* TEXT */
+
+.pmb-info h2{
+  font-size: 70px;
+
+  line-height: 1.1;
+
+  margin-bottom: 35px;
+
+  color: #dbeafe;
+
+  overflow: hidden;
+
+  border-right: 4px solid #60a5fa;
+
+  white-space: nowrap;
+
+  width: 0;
+
+  animation:
+  typingPMB 4s steps(20,end) forwards,
+  blinkCursor 0.8s infinite;
+}
+
+/* ANIMASI KETIK */
+
+@keyframes typingPMB{
+  from{
+    width: 0;
+  }
+
+  to{
+    width: 100%;
+  }
+}
+
+@keyframes blinkCursor{
+  50%{
+    border-color: transparent;
+  }
+}
+
+/* WEBSITE */
+
+.website{
+  margin-bottom: 35px;
+}
+
+.website span{
+  font-size: 28px;
+}
+
+/* SOCIAL ICON */
+
+.social-links{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-links a{
+  width: 70px;
+  height: 70px;
+
+  border-radius: 18px;
+
+  font-size: 28px;
+
+  background: rgba(255,255,255,0.06);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  transition: 0.4s ease;
+}
+
+/* HOVER ICON */
+
+.social-links a:hover{
+  transform: translateY(-8px) scale(1.1);
+}
+
+/* IG */
+
+.social-links a:nth-child(1):hover{
+  background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+
+  box-shadow: 0 0 25px rgba(225,48,108,0.5);
+}
+
+/* FB */
+
+.social-links a:nth-child(2):hover{
+  background: #1877f2;
+
+  box-shadow: 0 0 25px rgba(24,119,242,0.5);
+}
+
+/* TIKTOK */
+
+.social-links a:nth-child(3):hover{
+  background: #000;
+
+  box-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
+/* YOUTUBE */
+
+.social-links a:nth-child(4):hover{
+  background: #ff0000;
+
+  box-shadow: 0 0 25px rgba(255,0,0,0.5);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .pmb-card{
+    flex-direction: column;
+  }
+
+  .poster-box{
+    width: 100%;
+    max-width: 420px;
+    height: 500px;
+  }
+
+  .pmb-info h2{
+    font-size: 42px;
+    white-space: normal;
+    border-right: none;
+    animation: none;
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   STYLING UNTUK POSTER PENDAFTARAN (PMB SECTION)
+============================================================ */
+
+/* Container Utama Section */
+.pmb-section {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f172a; /* Background luar yang gelap */
+}
+
+/* Kartu Utama Modern */
+.pmb-card-modern {
+    background-color: #1e293b; /* Warna kartu biru gelap */
+    display: flex;
+    flex-direction: row; /* Posisi menyamping */
+    align-items: center;
+    padding: 40px;
+    border-radius: 30px; /* Sudut sangat membulat sesuai tren modern */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    max-width: 1000px;
+    width: 100%;
+    gap: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Border tipis transparan */
+}
+
+/* Box Gambar Poster (Sisi Kiri) */
+.poster-image-box {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.poster-image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.poster-image-box:hover img {
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Box Informasi (Sisi Kanan) */
+.pmb-info-modern {
+    flex: 1.2;
+    color: #ffffff;
+}
+
+.call-to-action {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Link Website */
+.website-link-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.website-circle-modern {
+    width: 12px;
+    height: 12px;
+    background-color: #3b82f6; /* Warna biru cerah */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #3b82f6; /* Efek menyala/glow */
+}
+
+.website-url {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #cbd5e1;
+}
+
+/* Grid Sosial Media (Kotak-kotak) */
+.social-grid-modern {
+    display: flex;
+    gap: 15px;
+}
+
+.social-box {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-box:hover {
+    background-color: #3b82f6;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsif untuk Tablet & HP */
+@media (max-width: 900px) {
+    .pmb-card-modern {
+        flex-direction: column; /* Berubah jadi tumpukan vertikal */
+        text-align: center;
+        padding: 30px;
+    }
+
+    .poster-image-box {
+        max-width: 100%;
+    }
+
+    .website-link-box {
+        justify-content: center;
+    }
+
+    .social-grid-modern {
+        justify-content: center;
+    }
+
+    .call-to-action {
+        font-size: 2.2rem;
+    }
+}
+
+/* =========================================================
+   STYLING LOKASI KAMPUS (MODERN VERSION)
+============================================================ */
+
+.lokasi-section {
+    padding: 60px 20px;
+    background-color: #0b1120;
+}
+
+.location-card-modern {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #1a2235;
+    border-radius: 30px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-title {
+    color: #3b82f6;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Peta sedikit lebih lebar */
+    gap: 40px;
+}
+
+/* Styling Map */
+.map-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(0.5) contrast(1.2); /* Memberikan kesan map elegan */
+}
+
+/* Styling Detail Informasi */
+.address-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    color: #ffffff;
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.info-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #94a3b8; /* Warna abu-abu soft */
+}
+
+.info-item p {
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+/* Tombol Navigasi */
+.btn-maps {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #3b82f6;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-maps:hover {
+    background: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+}
+
+.address-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Sedikit ditambah agar seimbang visualnya */
+    color: #ffffff;
+}
+
+/* Pastikan styling text jam perpustakaan tetap rapi */
+.info-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-top: 4px;
+}
+
+/* Styling Teks Typing */
+.call-to-action {
+    font-size: 3rem;
+    font-weight: 800;
+    min-height: 120px; /* Menjaga layout agar tidak goyang saat teks hilang */
+    color: #ffffff;
+    display: inline-block;
+}
+
+.cursor {
+    font-weight: 200;
+    color: #3b82f6;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Styling Tombol Daftar */
+.btn-daftar-pmb {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-daftar-pmb:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+.btn-daftar-pmb i {
+    transition: transform 0.3s ease;
+}
+
+.btn-daftar-pmb:hover i {
+    transform: translateX(5px) translateY(-5px);
+}
