@@ -1722,3 +1722,357 @@ TAMBAHKAN INI PALING BAWAH CSS KAMU
 .btn-daftar-pmb:hover i {
     transform: translateX(5px) translateY(-5px);
 }
+
+/* =========================================
+   STYLE UNTUK HALAMAN PRODUK (DARK THEME)
+========================================= */
+
+/* Sesuaikan warna background dengan warna gelap portfolio-mu (misal #061121 atau transparent jika sudah ada di body) */
+.produk {
+  padding: 120px 8% 60px;
+  background-color: transparent; 
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+.produk-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.subtitle {
+  color: #a0aec0; /* Warna teks abu-abu terang */
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* ANIMASI MENGETIK */
+.typing-container {
+  display: inline-block;
+}
+
+.typing-text {
+  font-size: 2.5rem;
+  color: #ffffff;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #3b82f6; /* Warna kursor biru menyesuaikan tombol portfolio */
+  margin: 0 auto;
+  width: 0;
+  animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: #3b82f6; } }
+
+/* GRID PRODUCT (Hanya 1 produk agar di tengah) */
+.product-grid.single-product {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 500px; /* Batasi lebar card agar tidak terlalu melar */
+}
+
+/* DARK CARD DESIGN */
+.dark-card {
+  background: #0f172a; /* Warna biru dongker pekat untuk card */
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.product-img {
+  width: 100%;
+  height: 300px;
+  background-color: #e2e8f0; /* Background terang sedikit untuk gambar berlatar putih */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-info h3 {
+  font-size: 1.4rem;
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* TOMBOL DETAIL PRODUK (MEMUNCULKAN POP UP) */
+.btn-detail {
+  background-color: #1e293b;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-detail:hover {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+/* AREA KONTAK & SOSMED */
+.business-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  border-top: 1px solid #334155;
+  padding-top: 15px;
+}
+
+.btn-order {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #25D366;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-order:hover { transform: scale(1.05); }
+
+.social-links { display: flex; gap: 8px; }
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #1e293b;
+  color: #cbd5e1;
+  border-radius: 50%;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-links a.ig:hover { background-color: #E1306C; color: #fff; }
+.social-links a.tiktok:hover { background-color: #000000; color: #fff; }
+.social-links a.yt:hover { background-color: #FF0000; color: #fff; }
+
+
+/* =========================================
+   STYLE UNTUK POP-UP MODAL
+========================================= */
+.modal {
+  display: none; /* Sembunyikan secara default */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  color: #f8fafc;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.close-btn:hover { color: #ef4444; }
+
+.modal-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.modal-content hr {
+  border: 0;
+  height: 1px;
+  background: #334155;
+  margin-bottom: 20px;
+}
+
+.modal-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal-list li {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+.modal-list li strong {
+  color: #3b82f6; /* Highlight poin penting dengan warna biru */
+}
+
+/* IKON SOCIAL MEDIA */
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: auto; /* Mendorong ikon ke bagian bawah card */
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Warna Hover khusus untuk setiap sosmed */
+.social-links a.ig:hover { background-color: #E1306C; color: #fff; }
+.social-links a.tiktok:hover { background-color: #000000; color: #fff; }
+.social-links a.yt:hover { background-color: #FF0000; color: #fff; }
+.social-links a.wa:hover { background-color: #25D366; color: #fff; }
+
+/* AREA KONTAK BISNIS DI DALAM CARD */
+.business-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto; /* Mendorong ke paling bawah card */
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* TOMBOL ORDER WHATSAPP */
+.btn-order {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #25D366;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-order:hover {
+  background-color: #1ebe57;
+  color: #fff;
+}
+
+/* IKON SOCIAL MEDIA BISNIS */
+.social-links {
+  display: flex;
+  gap: 8px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 50%;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Warna Hover Sosial Media */
+.social-links a.ig:hover { background-color: #E1306C; color: #fff; }
+.social-links a.tiktok:hover { background-color: #000000; color: #fff; }
+.social-links a.yt:hover { background-color: #FF0000; color: #fff; }
+
+/* =========================================
+   STYLE UNTUK EFEK KLIK GAMBAR & FULL SCREEN
+========================================= */
+
+/* Ubah kursor jadi tanda plus (zoom) biar user tahu gambar bisa diklik */
+#product-image {
+  cursor: zoom-in;
+  transition: opacity 0.3s ease;
+}
+
+#product-image:hover {
+  opacity: 0.7; /* Beri efek gelap sedikit saat disorot */
+}
+
+/* Desain Pop-up Gambar Full tanpa crop */
+.modal-content-img {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  animation: modalZoomIn 0.3s ease;
+  object-fit: contain; /* Ini kuncinya agar gambar TIDAK TER-CROP */
+}
+
+@keyframes modalZoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

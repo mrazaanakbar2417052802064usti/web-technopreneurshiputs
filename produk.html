@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk - Portfolio Razaan</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="menu-icon" id="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tentangsaya.html">Tentang Saya</a></li>
+        <li><a href="kampus.html">Profil Kampus</a></li>
+        <li><a href="dosenpengampu.html">Dosen Pengampu</a></li>
+        <li><a href="objekusaha.html">Objek Usaha</a></li>
+        <li><a href="produk.html" class="active">Produk</a></li> 
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+
+      <div class="logo">RZ</div>
+    </nav>
+  </header>
+
+  <section class="produk">
+    <div class="produk-header">
+      <div class="typing-container">
+        <h1 class="typing-produk" id="typing-produk-text"></h1>
+      </div>
+      <p class="subtitle">Karya inovatif dan ramah lingkungan dari objek usaha kami.</p>
+    </div>
+
+    <div class="product-grid single-product">
+      <div class="product-card dark-card">
+        <div class="product-img">
+          <img src="Produkkami.jpeg" alt="Lampu Hias Stik Es Krim" id="product-image" title="Klik untuk memperbesar gambar">
+        </div>
+        <div class="product-info">
+          <h3>Lampu Hias Stik Es Krim</h3>
+          <p>Lampu tidur estetik dengan desain minimalis. Terbuat dari material daur ulang yang ramah lingkungan namun tetap terlihat premium.</p>
+          
+          <button class="btn-detail" id="btn-open-modal">
+            <i class="fa-solid fa-circle-info"></i> Baca Deskripsi Lengkap
+          </button>
+          
+          <div class="business-contact">
+            <a href="https://wa.me/6281258448925?text=Halo,%20saya%20tertarik%20dengan%20Lampu%20Hias%20Stik%20Es%20Krim" target="_blank" class="btn-order">
+              <i class="fa-brands fa-whatsapp"></i> Pesan
+            </a>
+            <div class="social-links">
+              <a href="#" target="_blank" class="ig"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" target="_blank" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="#" target="_blank" class="yt"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="descModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="btn-close-modal">&times;</span>
+      <h2>Spesifikasi Detail</h2>
+      <hr>
+      <ul class="modal-list">
+        <li><strong>Konsep Desain:</strong> Minimalis, Kreatif, & Ramah Lingkungan.</li>
+        <li><strong>Dimensi Ukuran:</strong> 12 cm (P) x 12 cm (L) x 18 cm (T).</li>
+        <li><strong>Material:</strong> Stik es krim berkualitas dengan sambungan lem yang presisi.</li>
+        <li><strong>Pilihan Warna:</strong> Natural, Cokelat, dan Putih.</li>
+        <li><strong>Sistem Penerangan:</strong> Menggunakan Lampu LED hemat energi yang dilengkapi dengan kabel dan saklar on/off praktis.</li>
+        <li><strong>Kaki Penyangga:</strong> Dilengkapi kaki penyangga kokoh di bagian bawah untuk sirkulasi cahaya yang estetis.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="imageModal" class="modal">
+    <span class="close-btn" id="btn-close-image" style="top: 20px; right: 30px; font-size: 40px;">&times;</span>
+    <img class="modal-content-img" id="full-image">
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Muhammad Razaan Akbar. All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
