@@ -2076,3 +2076,244 @@ TAMBAHKAN INI PALING BAWAH CSS KAMU
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+
+/* Mengatur ukuran logo kampus di kiri atas */
+.campus-logo {
+  width: 50px; /* Silakan sesuaikan angkanya jika kurang besar/kecil */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Memastikan susunan navbar tetap rapi (jika sebelumnya bergeser) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  margin-left: 30px; /* Mengatur jarak antara logo kampus dan menu navigasi */
+  margin-right: auto; /* Kunci utamanya: ini akan mendorong logo RZ kembali mentok ke kanan */
+}
+
+/* --- PENGATURAN LOGO KAMPUS DI KIRI BAWAH NAVBAR --- */
+
+/* Memastikan area home menjadi patokan koordinat logo */
+.home {
+  position: relative; 
+}
+
+/* --- PENGATURAN LOGO KAMPUS DI KIRI BAWAH NAVBAR --- */
+
+.logo-kampus-box {
+  position: absolute;
+  top: 50px;        /* Jarak dari atas, ubah jika perlu */
+  left: 6%;         /* Jarak dari kiri, sesuaikan agar pas dengan menu Home */
+  z-index: 10;
+}
+
+/* Mengatur ukuran dan efek glow logo */
+.logo-kampus-box .campus-logo {
+  width: 160px;     /* Ukuran diperbesar drastis, ubah angka ini jika masih kurang besar */
+  height: auto;
+  display: block;
+  
+  /* Efek Glow Berlapis (Bisa disesuaikan warnanya) */
+  /* Format: x-offset y-offset blur warna */
+  filter: 
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))  /* Cahaya putih tipis agar tulisan terlihat */
+    drop-shadow(0 0 25px rgba(66, 133, 244, 0.8));  /* Cahaya biru agar menyatu dengan tema web */
+}
+
+/* Mengatur grid agar card produk berjajar menyamping dengan rapi */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* Memastikan tombol pesan mengambil lebar penuh karena sosmed sudah dipindah */
+.business-contact {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.btn-order {
+  width: 100%; /* Memanjangkan tombol pesan */
+  text-align: center;
+  justify-content: center;
+}
+
+/* --- 1. PENGATURAN 3 CARD AGAR SIMETRIS --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Memaksa grid menjadi persis 3 kolom sejajar */
+  gap: 30px;
+  width: 90%;
+  max-width: 1100px; /* Lebar maksimal dibatasi agar tidak terlalu melar */
+  margin: 40px auto;
+}
+
+/* Responsif: Jika layar kecil (HP/Tablet), card akan bertumpuk ke bawah */
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 650px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- 2. PENGATURAN AREA POSTER KELOMPOK --- */
+.poster-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 80px auto 50px auto; /* Jarak atas bawah */
+  text-align: center;
+}
+
+.poster-container h2 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.poster-wrapper {
+  background: rgba(255, 255, 255, 0.05); /* Sedikit background gelap untuk bingkai */
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.poster-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+/* --- 3. PENGATURAN TOMBOL PESAN & SOSIAL MEDIA DI BAWAH --- */
+.bottom-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Jarak antara tombol Pesan dan Sosmed */
+  margin-bottom: 60px;
+}
+
+.btn-pesan-global {
+  background-color: #25D366; /* Warna Hijau Khas WhatsApp */
+  color: #ffffff;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px; /* Membuat tombol berbentuk pil membulat */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-pesan-global:hover {
+  background-color: #1EBE57; /* Warna hijau sedikit gelap saat di-hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.global-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.global-social-links a {
+  color: #ffffff;
+  font-size: 26px;
+  transition: 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Membuat background ikon bulat sempurna */
+  text-decoration: none; /* BARIS INI YANG MENGHILANGKAN GARIS BAWAH */
+}
+.global-social-links a:hover {
+  transform: translateY(-5px);
+  background-color: #4285f4; /* Berubah warna biru saat disentuh */
+}
+
+/* PENGATURAN AGAR CARD SELALU SIMETRIS */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Memaksa card mengisi seluruh tinggi area grid */
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Area info akan memanjang mengisi ruang kosong */
+}
+
+.btn-detail {
+  margin-top: auto; /* Mendorong tombol otomatis ke posisi paling bawah */
+}
+
+/* Kursor pointer untuk gambar yang bisa dizoom */
+.zoomable-image {
+  cursor: pointer;
+}
+
+/* --- 4. PENGATURAN AREA GALERI PRODUK BARU --- */
+.gallery-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px auto 20px auto; /* Memberikan ruang antara poster dan galeri */
+  text-align: center;
+}
+
+.gallery-container h2 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+/* Membuat grid responsif: 4 kolom di laptop, otomatis menyesuaikan di HP */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Pembungkus foto galeri */
+.gallery-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek saat kursor menyentuh foto galeri */
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(66, 133, 244, 0.25); /* Glow biru tipis */
+  border-color: rgba(66, 133, 244, 0.4);
+}
+
+/* Mengatur proporsi gambar di dalam galeri */
+.gallery-item img {
+  width: 100%;
+  height: 220px; /* Menyamakan tinggi semua foto galeri agar rapi */
+  object-fit: cover; /* Foto otomatis memotong rapi tanpa gepeng */
+  display: block;
+}

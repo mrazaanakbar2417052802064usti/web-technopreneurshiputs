@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === 2. LOGIKA TYPING NAMA (Home/Tentang Saya) ===
+  // === 2. LOGIKA TYPING NAMA ===
   const typingElement = document.getElementById("typing");
   const nameText = "Muhammad Razaan Akbar";
   let nameIndex = 0;
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function typeNameEffect() {
     if (!typingElement) return;
-
     if (nameIsDeleting) {
       typingElement.innerHTML = nameText.substring(0, nameIndex - 1);
       nameIndex--;
@@ -26,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
       typingElement.innerHTML = nameText.substring(0, nameIndex + 1);
       nameIndex++;
     }
-
     let speed = 120;
     if (!nameIsDeleting && nameIndex === nameText.length) {
       speed = 2000;
@@ -42,19 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === 3. LOGIKA TYPING PMB ===
   const pmbElement = document.getElementById("typing-text");
-  const pmbArray = [
-    "AYO DAFTAR SEKARANG!!!", 
-    "JADI MAHASISWA USTI"
-  ]; 
+  const pmbArray = ["AYO DAFTAR SEKARANG!!!", "JADI MAHASISWA USTI"];
   let pmbArrayIndex = 0;
   let pmbCharIndex = 0;
   let pmbIsDeleting = false;
 
   function typePmbEffect() {
     if (!pmbElement) return;
-
     const currentPmbText = pmbArray[pmbArrayIndex];
-
     if (pmbIsDeleting) {
       pmbElement.textContent = currentPmbText.substring(0, pmbCharIndex - 1);
       pmbCharIndex--;
@@ -62,9 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pmbElement.textContent = currentPmbText.substring(0, pmbCharIndex + 1);
       pmbCharIndex++;
     }
-
     let pmbSpeed = pmbIsDeleting ? 50 : 100;
-
     if (!pmbIsDeleting && pmbCharIndex === currentPmbText.length) {
       pmbSpeed = 2000;
       pmbIsDeleting = true;
@@ -73,30 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
       pmbArrayIndex = (pmbArrayIndex + 1) % pmbArray.length;
       pmbSpeed = 500;
     }
-
     setTimeout(typePmbEffect, pmbSpeed);
   }
 
-  // === 4. LOGIKA MODAL POP-UP DESKRIPSI ===
-  const modalDesc = document.getElementById("descModal");
-  const btnOpenModal = document.getElementById("btn-open-modal");
-  const btnCloseModal = document.getElementById("btn-close-modal");
-
-  if (modalDesc && btnOpenModal && btnCloseModal) {
-    btnOpenModal.addEventListener("click", () => {
-      modalDesc.style.display = "flex";
-    });
-    btnCloseModal.addEventListener("click", () => {
-      modalDesc.style.display = "none";
-    });
-    window.addEventListener("click", (event) => {
-      if (event.target === modalDesc) {
-        modalDesc.style.display = "none";
-      }
-    });
-  }
-
-  // === 5. LOGIKA TYPING PRODUK KAMI ===
+  // === 4. LOGIKA TYPING PRODUK KAMI ===
   const produkElement = document.getElementById("typing-produk-text");
   const produkText = "Produk Kami";
   let produkIndex = 0;
@@ -104,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function typeProdukEffect() {
     if (!produkElement) return;
-
     if (produkIsDeleting) {
       produkElement.innerHTML = produkText.substring(0, produkIndex - 1);
       produkIndex--;
@@ -112,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
       produkElement.innerHTML = produkText.substring(0, produkIndex + 1);
       produkIndex++;
     }
-
     let speed = 150;
     if (!produkIsDeleting && produkIndex === produkText.length) {
       speed = 3000;
@@ -126,32 +95,58 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeProdukEffect, speed);
   }
 
-  // === 6. LOGIKA MODAL GAMBAR FULL (BARU) ===
+  // === 5. LOGIKA MODAL POP-UP DESKRIPSI (DINAMIS & TOTAL REWRITE) ===
+  const descModal = document.getElementById("descModal");
+  const modalDynamicBody = document.getElementById("modal-dynamic-body");
+  const btnOpenModalList = document.querySelectorAll(".btn-open-modal");
+  const btnCloseModal = document.getElementById("btn-close-modal");
+
+  btnOpenModalList.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Mengambil data teks spesifik dari atribut data-info tombol yang di-klik
+      const targetInfo = btn.getAttribute("data-info");
+      
+      if (modalDynamicBody) {
+        modalDynamicBody.innerHTML = targetInfo;
+      }
+      
+      descModal.style.display = "flex";
+    });
+  });
+
+  if (btnCloseModal) {
+    btnCloseModal.addEventListener("click", () => {
+      descModal.style.display = "none";
+    });
+  }
+
+  // === 6. LOGIKA MODAL GAMBAR FULL ===
   const imageModal = document.getElementById("imageModal");
-  const productImage = document.getElementById("product-image");
+  const zoomableImages = document.querySelectorAll(".zoomable-image");
   const fullImage = document.getElementById("full-image");
   const btnCloseImage = document.getElementById("btn-close-image");
 
-  if (imageModal && productImage && fullImage && btnCloseImage) {
-    // Buka gambar saat diklik
-    productImage.addEventListener("click", function() {
+  zoomableImages.forEach((img) => {
+    img.addEventListener("click", function () {
       imageModal.style.display = "flex";
-      fullImage.src = this.src; // Mengambil src dari gambar yang diklik
+      fullImage.src = this.src;
     });
-    // Tutup dengan tanda X
+  });
+
+  if (btnCloseImage) {
     btnCloseImage.addEventListener("click", () => {
       imageModal.style.display = "none";
     });
-    // Tutup kalau klik di luar area gambar
-    window.addEventListener("click", (event) => {
-      if (event.target === imageModal) {
-        imageModal.style.display = "none";
-      }
-    });
   }
+
+  // Tutup modal jika klik di luar area konten utama modal
+  window.addEventListener("click", (event) => {
+    if (event.target === descModal) descModal.style.display = "none";
+    if (event.target === imageModal) imageModal.style.display = "none";
+  });
 
   // JALANKAN SEMUA FUNGSI EFEK TYPING
   typeNameEffect();
   typePmbEffect();
-  typeProdukEffect(); 
+  typeProdukEffect();
 });
